@@ -1,16 +1,66 @@
-# React + Vite
+# AI Product Recommender
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small React-based product recommendation application built as part of a coding assessment.
 
-Currently, two official plugins are available:
+The application shows a list of products and allows the user to describe what they are looking for in their own words. For example:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> "I want a phone under $500 with a good camera."
 
-## React Compiler
+The application sends this requirement along with the available products to Gemini AI. Gemini analyzes the user's requirement and recommends the products that best match it.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Displays a list of available products
+- Allows users to enter their requirements in natural language
+- Uses Gemini AI to understand the user's preferences
+- Recommends products only from the available product list
+- Shows a short explanation of why each product was recommended
+- Handles loading and error states
+- Responsive and simple UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- Gemini API
+- Node.js
+- Express.js
+- Vercel
+
+## How It Works
+
+1. The user enters a requirement in the suggestion box.
+2. The React frontend sends the requirement and product list to the backend API.
+3. The backend sends this information to Gemini.
+4. Gemini selects the products that best match the user's requirements.
+5. The frontend receives the recommended product IDs and displays the matching products with AI-generated reasons.
+
+## Project Structure
+
+```text
+ai-product-recommender/
+│
+├── api/
+│   └── recommend.js
+│
+├── src/
+│   ├── components/
+│   │   ├── ProductCard.jsx
+│   │   ├── ProductList.jsx
+│   │   └── SuggestionBox.jsx
+│   │
+│   ├── data/
+│   │   └── products.js
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── server/
+│   └── server.js
+│
+├── .env
+├── package.json
+├── vite.config.js
+└── README.md
