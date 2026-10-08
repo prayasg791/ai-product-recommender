@@ -1,5 +1,5 @@
 import { useState } from "react";
-import products from "./data/products";
+import products from "./Data/products";
 import ProductList from "./Components/ProductList";
 import SuggestionBox from "./Components/SuggestionBox";
 
